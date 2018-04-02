@@ -3,6 +3,7 @@ enable_language(CXX)
 add_executable(Test_MockComparator
     RunAllTests.cpp
     Test_MockComparator.cpp
+    SomeStructComparator.h
     "${CMAKE_HOME_DIRECTORY}/mocks/MockSomeLibrary.cpp"
 )
 target_link_libraries(Test_MockComparator
