@@ -12,4 +12,5 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 enable_testing()
 find_package(CppUTest 3.8 REQUIRED)
 
+add_subdirectory(src)
 add_subdirectory(tests)
