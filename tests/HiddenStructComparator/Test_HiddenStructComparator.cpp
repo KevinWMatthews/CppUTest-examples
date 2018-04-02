@@ -37,6 +37,17 @@ TEST(HiddenStructComparator, can_be_equal)
     CHECK_TRUE(result);
 }
 
+IGNORE_TEST(HiddenStructComparator, different_when_init_params_are_different)
+{
+    init_params.some_value = 42;
+    hidden_struct_handle = SomeLibrary_HiddenStructInitialize(&init_params);
+    init_params.some_value = 43;
+    hidden_struct_handle2 = SomeLibrary_HiddenStructInitialize(&init_params);
+
+    result = local_comparator.isEqual(hidden_struct_handle, hidden_struct_handle2);
+    CHECK_FALSE(result);
+}
+
 TEST(HiddenStructComparator, null_first_object_does_not_segfault)
 {
     result = local_comparator.isEqual(NULL, &hidden_struct_handle2);
