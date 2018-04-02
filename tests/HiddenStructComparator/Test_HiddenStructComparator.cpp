@@ -11,8 +11,8 @@ extern "C"
 TEST_GROUP(HiddenStructComparator)
 {
     HiddenStructComparator local_comparator;
-    SOME_STRUCT some_struct;
-    SOME_STRUCT some_struct2;
+    HIDDEN_STRUCT_HANDLE hidden_struct_handle;
+    HIDDEN_STRUCT_HANDLE hidden_struct_handle2;
     bool result;
 
     void setup()
@@ -21,12 +21,23 @@ TEST_GROUP(HiddenStructComparator)
 
     void teardown()
     {
-        // Rather than checking and clearing the mock here,
-        // use the MockSupport plugin to do so at global scope.
     }
 };
 
-TEST(HiddenStructComparator, wiring_check)
+TEST(HiddenStructComparator, null_first_object_does_not_segfault)
 {
-    FAIL("start here");
+    result = local_comparator.isEqual(NULL, &hidden_struct_handle2);
+    CHECK_FALSE(result);
+}
+
+TEST(HiddenStructComparator, null_second_object_does_not_segfault)
+{
+    result = local_comparator.isEqual(&hidden_struct_handle, NULL);
+    CHECK_FALSE(result);
+}
+
+TEST(HiddenStructComparator, null_objects_are_equal)
+{
+    result = local_comparator.isEqual(NULL, NULL);
+    CHECK_TRUE(result);
 }
