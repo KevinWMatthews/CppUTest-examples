@@ -20,4 +20,7 @@ typedef struct SOME_STRUCT
 } SOME_STRUCT;
 void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param);
 
+typedef struct HIDDEN_STRUCT_DEFINITION * HIDDEN_STRUCT_HANDLE;
+
+
 #endif

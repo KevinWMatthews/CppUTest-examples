@@ -3,6 +3,8 @@ enable_language(CXX)
 add_library(MockSomeLibrary
     SomeStructComparator.h
     SomeStructComparator.cpp
+    HiddenStructComparator.h
+    HiddenStructComparator.cpp
     MockSomeLibrary.cpp
 )
 target_include_directories(MockSomeLibrary
