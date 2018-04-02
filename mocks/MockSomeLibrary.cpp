@@ -30,3 +30,8 @@ void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param)
     mock("SomeMock").actualCall("SomeLibrary_DoesNothingWithStructParameter")
         .withParameterOfType("SOME_STRUCT", "param", param);
 }
+
+HIDDEN_STRUCT_HANDLE SomeLibrary_HiddenStructInitialize(HIDDEN_STRUCT_INIT_PARAMS *params)
+{
+    return NULL;
+}

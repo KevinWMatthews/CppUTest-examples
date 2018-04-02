@@ -22,5 +22,10 @@ void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param);
 
 typedef struct HIDDEN_STRUCT_DEFINITION * HIDDEN_STRUCT_HANDLE;
 
+typedef struct HIDDEN_STRUCT_INIT_PARAMS
+{
+    int some_value;
+} HIDDEN_STRUCT_INIT_PARAMS;
+HIDDEN_STRUCT_HANDLE SomeLibrary_HiddenStructInitialize(HIDDEN_STRUCT_INIT_PARAMS *params);
 
 #endif

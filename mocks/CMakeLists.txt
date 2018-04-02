@@ -14,6 +14,7 @@ target_include_directories(MockSomeLibrary
 target_link_libraries(MockSomeLibrary
     PRIVATE
         CppUTest
+        CppUTestExt
         SomeLibrary::SomeLibrary
 )
 add_library(MockSomeLibrary::MockSomeLibrary ALIAS MockSomeLibrary)
