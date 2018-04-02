@@ -2,6 +2,7 @@ enable_language(CXX)
 
 add_executable(Test_MockComparator
     RunAllTests.cpp
+    Test_SomeStructComparator.cpp
     Test_MockComparator.cpp
     SomeStructComparator.h
     SomeStructComparator.cpp

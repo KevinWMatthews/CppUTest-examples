@@ -5,9 +5,16 @@ bool SomeStructComparator::isEqual(const void* object1, const void* object2)
     const SOME_STRUCT * some_struct1 = (SOME_STRUCT *)object1;
     const SOME_STRUCT * some_struct2 = (SOME_STRUCT *)object2;
 
-    if (some_struct1->thing1 != some_struct2->thing1)
+    if (some_struct1 == NULL && some_struct2 == NULL)
+        return true;
+
+    if (some_struct1 == NULL)
+        return false;
+    if (some_struct2 == NULL)
         return false;
 
+    if (some_struct1->thing1 != some_struct2->thing1)
+        return false;
     if (some_struct1->thing2 != some_struct2->thing2)
         return false;
 
