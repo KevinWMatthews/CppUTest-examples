@@ -13,4 +13,5 @@ enable_testing()
 find_package(CppUTest 3.8 REQUIRED)
 
 add_subdirectory(src)
+add_subdirectory(mocks)
 add_subdirectory(tests)
