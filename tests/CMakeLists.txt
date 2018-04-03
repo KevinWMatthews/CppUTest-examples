@@ -1,5 +1,6 @@
 add_subdirectory(Basic)
 add_subdirectory(Mock)
 add_subdirectory(SomeStructComparator)
-add_subdirectory(HiddenStructComparator)
 add_subdirectory(MockComparator)
+add_subdirectory(HiddenStructComparator)
+add_subdirectory(SomeStructCopier)
