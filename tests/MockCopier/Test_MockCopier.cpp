@@ -38,21 +38,3 @@ TEST(TestWithMockCopier, call_function_with_copier)
     LONGS_EQUAL(0, some_struct.thing1);
     LONGS_EQUAL(0, some_struct.thing2);
 }
-
-#if 0
-// This test is configured to fail
-TEST(TestWithMockCopier, comparator_can_fail)
-{
-    SOME_STRUCT some_struct = {};
-    some_struct.thing1 = 41;
-    some_struct.thing2 = 42;
-
-    mock("SomeMock").expectOneCall("SomeLibrary_DoesNothingWithStructParameter")
-        .withParameterOfType("SOME_STRUCT", "param", &some_struct);
-
-    SOME_STRUCT other_struct = {};
-    other_struct.thing1 = 66;
-    other_struct.thing2 = 67;
-    SomeLibrary_DoesNothingWithStructParameter(&other_struct);
-}
-#endif
