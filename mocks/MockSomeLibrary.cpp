@@ -33,7 +33,8 @@ void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param)
 
 void SomeLibrary_ClearStructParameter(SOME_STRUCT *self)
 {
-    mock("SomeMock").actualCall("SomeLibrary_ClearStructParameter");
+    mock("LocalMock").actualCall("SomeLibrary_ClearStructParameter")
+        .withOutputParameterOfType("SOME_STRUCT", "self", self);
 }
 
 HIDDEN_STRUCT_HANDLE SomeLibrary_HiddenStructInitialize(HIDDEN_STRUCT_INIT_PARAMS *params)

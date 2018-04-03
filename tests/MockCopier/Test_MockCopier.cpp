@@ -5,6 +5,7 @@ extern "C"
 
 #include "CppUTest/TestHarness.h"
 #include "CppUTestExt/MockSupport.h"
+#include "SomeStructCopier.h"
 
 // The copier is defined at the global scope.
 
@@ -21,19 +22,28 @@ TEST_GROUP(TestWithMockCopier)
     }
 };
 
-TEST(TestWithMockCopier, call_function_with_comparator)
+TEST(TestWithMockCopier, call_function_with_copier)
 {
     SOME_STRUCT some_struct = {};
     some_struct.thing1 = 41;
     some_struct.thing2 = 42;
 
-    mock("SomeMock").expectOneCall("SomeLibrary_ClearStructParameter");
-        // .withOutputParameterOfTypeReturning("SOME_STRUCT", "param", &some_struct);
+    SOME_STRUCT output = {};
+
+    SomeStructCopier local_copier;
+
+    mock("LocalMock").installCopier("SOME_STRUCT", local_copier);
+    mock("LocalMock").expectOneCall("SomeLibrary_ClearStructParameter")
+        .withOutputParameterOfTypeReturning("SOME_STRUCT", "self", &output);
 
     SomeLibrary_ClearStructParameter(&some_struct);
 
-    // LONGS_EQUAL(0, some_struct.thing1);
-    // LONGS_EQUAL(0, some_struct.thing2);
+    mock("LocalMock").checkExpectations();
+    mock("LocalMock").clear();
+    mock("LocalMock").removeAllComparatorsAndCopiers();
+
+    LONGS_EQUAL(0, some_struct.thing1);
+    LONGS_EQUAL(0, some_struct.thing2);
 }
 
 #if 0
