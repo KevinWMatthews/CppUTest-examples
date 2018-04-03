@@ -24,6 +24,12 @@ void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param)
     return;
 }
 
+void SomeLibrary_ClearStructParameter(SOME_STRUCT *self)
+{
+    printf("%s: This function should only be called by production code!\n", __func__);
+    return;
+}
+
 HIDDEN_STRUCT_HANDLE SomeLibrary_HiddenStructInitialize(HIDDEN_STRUCT_INIT_PARAMS *params)
 {
     printf("%s: This function should only be called by production code!\n", __func__);

@@ -31,6 +31,9 @@ TEST(TestWithMockCopier, call_function_with_comparator)
         // .withOutputParameterOfTypeReturning("SOME_STRUCT", "param", &some_struct);
 
     SomeLibrary_ClearStructParameter(&some_struct);
+
+    // LONGS_EQUAL(0, some_struct.thing1);
+    // LONGS_EQUAL(0, some_struct.thing2);
 }
 
 #if 0
