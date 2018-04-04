@@ -25,6 +25,8 @@ void SomeLibrary_ClearStructParameter(SOME_STRUCT *self);
 
 typedef struct HIDDEN_STRUCT_DEFINITION * HIDDEN_STRUCT_HANDLE;
 
+void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle);
+
 typedef struct HIDDEN_STRUCT_INIT_PARAMS
 {
     int init_value;

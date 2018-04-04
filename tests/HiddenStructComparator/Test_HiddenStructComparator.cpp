@@ -25,6 +25,23 @@ TEST_GROUP(HiddenStructComparator)
     }
 };
 
+// A pointer to the struct is declared by production code.
+// The struct definition is internal to this production code module and
+// is not available to tests (or other production code modules).
+//
+// The tests can defined their own data structure and manipulate it as needed.
+TEST(HiddenStructComparator, can_fill_copy_to_hidden_struct)
+{
+    HIDDEN_STRUCT_HANDLE handle;
+
+    // mock("SomeMock").expectOneCall("SomeLibrary_FillHiddenStruct")
+        // .withParameter("value", 42)
+        // .withOutputParameterOfTypeReturning("HIDDEN_STRUCT_HANDLE", "handle", handle);
+
+    SomeLibrary_FillHiddenStruct(42, hidden_struct_handle);
+    // check result
+}
+
 TEST(HiddenStructComparator, can_be_equal)
 {
     init_params.init_value = 42;

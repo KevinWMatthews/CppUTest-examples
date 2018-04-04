@@ -37,6 +37,10 @@ void SomeLibrary_ClearStructParameter(SOME_STRUCT *self)
         .withOutputParameterOfType("SOME_STRUCT", "self", self);
 }
 
+void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle)
+{
+}
+
 HIDDEN_STRUCT_HANDLE SomeLibrary_HiddenStructInitialize(HIDDEN_STRUCT_INIT_PARAMS *params)
 {
     return NULL;
