@@ -30,7 +30,7 @@ TEST(TestWithMockCopier, call_function_with_copier)
 
     SOME_STRUCT output = {};
 
-    mock("LocalMock").expectOneCall("SomeLibrary_ClearStructParameter")
+    mock("SomeMock").expectOneCall("SomeLibrary_ClearStructParameter")
         .withOutputParameterOfTypeReturning("SOME_STRUCT", "self", &output);
 
     SomeLibrary_ClearStructParameter(&some_struct);
