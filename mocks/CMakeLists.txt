@@ -7,6 +7,8 @@ add_library(MockSomeLibrary
     SomeStructCopier.cpp
     HiddenStructComparator.h
     HiddenStructComparator.cpp
+    HiddenStructCopier.h
+    HiddenStructCopier.cpp
     MockSomeLibrary.cpp
 )
 target_include_directories(MockSomeLibrary

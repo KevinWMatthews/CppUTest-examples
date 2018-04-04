@@ -11,9 +11,9 @@ extern "C"
 
 TEST_GROUP(HiddenStructCopier)
 {
-    // HiddenStructCopier local_copier;
-    // HIDDEN_STRUCT hidden_struct;
-    // HIDDEN_STRUCT hidden_struct2;
+    HiddenStructCopier local_copier;
+    HIDDEN_STRUCT_DEFINITION hidden_struct;
+    HIDDEN_STRUCT_DEFINITION hidden_struct2;
 
     void setup()
     {
@@ -24,7 +24,11 @@ TEST_GROUP(HiddenStructCopier)
     }
 };
 
-TEST(HiddenStructCopier, wiring_check)
+TEST(HiddenStructCopier, can_copy_object)
 {
-    FAIL("start here");
+    hidden_struct.test_value = 42;
+    hidden_struct2.test_value = 0;
+
+    local_copier.copy(&hidden_struct2, &hidden_struct);
+    LONGS_EQUAL( 42, hidden_struct2.test_value );
 }
