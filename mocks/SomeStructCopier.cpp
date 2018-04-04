@@ -1,9 +1,14 @@
 #include "SomeStructCopier.h"
 
+extern "C"
+{
+#include "SomeLibrary.h"
+}
+
 void SomeStructCopier::copy(void* out, const void* in)
 {
-    SOME_STRUCT * some_struct = (SOME_STRUCT *)in;
     SOME_STRUCT * some_struct2 = (SOME_STRUCT *)out;
+    const SOME_STRUCT * some_struct = (const SOME_STRUCT *)in;
 
     if (out == NULL)
         return;

@@ -32,8 +32,8 @@ TEST(SomeStructCopier, can_copy_object)
     some_struct2.thing2 = 0;
 
     local_copier.copy(&some_struct2, &some_struct);
-    LONGS_EQUAL( some_struct2.thing1, 41 );
-    LONGS_EQUAL( some_struct2.thing2, 42 );
+    LONGS_EQUAL( 41, some_struct2.thing1 );
+    LONGS_EQUAL( 42, some_struct2.thing2 );
 }
 
 TEST(SomeStructCopier, null_first_object_does_not_segfault)

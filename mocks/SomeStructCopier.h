@@ -3,11 +3,6 @@
 
 #include "CppUTestExt/MockSupport.h"
 
-extern "C"
-{
-#include "SomeLibrary.h"
-}
-
 class SomeStructCopier : public MockNamedValueCopier
 {
 public:
