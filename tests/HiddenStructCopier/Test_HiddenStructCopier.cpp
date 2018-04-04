@@ -1,5 +1,6 @@
 extern "C"
 {
+#include "SomeLibrary.h"
 #include "MockSomeLibrary.h"
 }
 
@@ -30,6 +31,18 @@ TEST(HiddenStructCopier, can_copy_object)
     hidden_struct2.test_value = 0;
 
     local_copier.copy(&hidden_struct2, &hidden_struct);
+    LONGS_EQUAL( 42, hidden_struct2.test_value );
+}
+
+TEST(HiddenStructCopier, can_copy_object_using_handles)
+{
+    hidden_struct.test_value = 42;
+    hidden_struct2.test_value = 0;
+
+    HIDDEN_STRUCT_HANDLE hidden_struct_handle = &hidden_struct;
+    HIDDEN_STRUCT_HANDLE hidden_struct_handle2 = &hidden_struct2;
+
+    local_copier.copy(hidden_struct_handle2, hidden_struct_handle);
     LONGS_EQUAL( 42, hidden_struct2.test_value );
 }
 
