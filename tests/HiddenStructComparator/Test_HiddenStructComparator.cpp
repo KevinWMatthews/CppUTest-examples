@@ -27,7 +27,7 @@ TEST_GROUP(HiddenStructComparator)
 
 TEST(HiddenStructComparator, can_be_equal)
 {
-    init_params.some_value = 42;
+    init_params.init_value = 42;
     hidden_struct_handle = SomeLibrary_HiddenStructInitialize(&init_params);
     hidden_struct_handle2 = SomeLibrary_HiddenStructInitialize(&init_params);
 
@@ -39,9 +39,9 @@ TEST(HiddenStructComparator, can_be_equal)
 
 IGNORE_TEST(HiddenStructComparator, different_when_init_params_are_different)
 {
-    init_params.some_value = 42;
+    init_params.init_value = 42;
     hidden_struct_handle = SomeLibrary_HiddenStructInitialize(&init_params);
-    init_params.some_value = 43;
+    init_params.init_value = 43;
     hidden_struct_handle2 = SomeLibrary_HiddenStructInitialize(&init_params);
 
     result = local_comparator.isEqual(hidden_struct_handle, hidden_struct_handle2);
