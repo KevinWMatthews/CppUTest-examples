@@ -36,6 +36,12 @@ void SomeLibrary_FillStructFromValues(int thing1, int thing2, SOME_STRUCT *param
     return;
 }
 
+void SomeLibrary_FillStructFromValuesWithCopier(int thing1, int thing2, SOME_STRUCT *param)
+{
+    printf("%s: This function should only be called by production code!\n", __func__);
+    return;
+}
+
 void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle)
 {
     printf("%s: This function should only be called by production code!\n", __func__);

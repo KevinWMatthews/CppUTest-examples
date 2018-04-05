@@ -73,3 +73,25 @@ TEST(TestWithMockCopier, fill_struct_from_parameter_without_copier)
     LONGS_EQUAL(thing1, some_struct.thing1);
     LONGS_EQUAL(thing2, some_struct.thing2);
 }
+
+
+TEST(TestWithMockCopier, fill_struct_from_parameter_using_copier)
+{
+    int thing1 = 41;
+    int thing2 = 42;
+    SOME_STRUCT output = {};
+    output.thing1 = thing1;
+    output.thing2 = thing2;
+
+    mock("SomeMock").expectOneCall("SomeLibrary_FillStructFromValues")
+        .withParameter("thing1", thing1)
+        .withParameter("thing2", thing2)
+        .withOutputParameterOfTypeReturning("SOME_STRUCT", "param", &output);
+    // In more complex cases a copier could be simpler.
+    // Demonstrate this method with a simple case.
+
+    SomeLibrary_FillStructFromValuesWithCopier(thing1, thing2, &some_struct);
+
+    LONGS_EQUAL(thing1, some_struct.thing1);
+    LONGS_EQUAL(thing2, some_struct.thing2);
+}

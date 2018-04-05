@@ -21,6 +21,8 @@ typedef struct SOME_STRUCT
 void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param);
 
 void SomeLibrary_FillStructFromValues(int thing1, int thing2, SOME_STRUCT *param);
+void SomeLibrary_FillStructFromValuesWithCopier(int thing1, int thing2, SOME_STRUCT *param);
+
 
 // Modify the struct that is passed - clear all internal values
 void SomeLibrary_FillStructParameter(SOME_STRUCT *self);
