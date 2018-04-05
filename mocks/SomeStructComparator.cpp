@@ -27,7 +27,7 @@ SimpleString SomeStructComparator::valueToString(const void* object)
 
     SimpleString output;
 
-    output += StringFrom(object);
+    output += StringFrom("SOME_STRUCT");
     output += StringFrom(" - ") + StringFrom("thing1: ") + StringFrom(some_struct->thing1);
     output += StringFrom("; ") + StringFrom("thing2: ") + StringFrom(some_struct->thing2);
     return output;

@@ -23,5 +23,12 @@ bool SomeStructInitParamsComparator::isEqual(const void* object1, const void* ob
 
 SimpleString SomeStructInitParamsComparator::valueToString(const void* object)
 {
-    return StringFrom(object);
+    const SOME_STRUCT_INIT_PARAMS * params = (SOME_STRUCT_INIT_PARAMS *)object;
+
+    SimpleString output;
+
+    output += StringFrom("SOME_STRUCT_INIT_PARAMS");
+    output += StringFrom(" - ") + StringFrom("init_value1: ") + StringFrom(params->init_value1);
+    output += StringFrom("; ") + StringFrom("init_value2: ") + StringFrom(params->init_value2);
+    return output;
 }
