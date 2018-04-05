@@ -1,7 +1,7 @@
 enable_language(CXX)
 
 add_executable(Test_Basic
-    RunAllTests.cpp
+    AllTests.cpp
     Test_Basic.cpp
 )
 target_link_libraries(Test_Basic

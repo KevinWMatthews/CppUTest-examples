@@ -1,7 +1,7 @@
 enable_language(CXX)
 
 add_executable(Test_SomeStructCopier
-    RunAllTests.cpp
+    AllTests.cpp
     Test_SomeStructCopier.cpp
 )
 target_link_libraries(Test_SomeStructCopier

@@ -1,7 +1,7 @@
 enable_language(CXX)
 
 add_executable(Test_HiddenStructCopier
-    RunAllTests.cpp
+    AllTests.cpp
     Test_HiddenStructCopier.cpp
 )
 target_link_libraries(Test_HiddenStructCopier

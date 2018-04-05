@@ -1,7 +1,7 @@
 enable_language(CXX)
 
 add_executable(Test_MockComparator
-    RunAllTests.cpp
+    AllTests.cpp
     Test_MockComparator.cpp
 )
 target_link_libraries(Test_MockComparator

@@ -1,7 +1,7 @@
 enable_language(CXX)
 
 add_executable(Test_Mock
-    RunAllTests.cpp
+    AllTests.cpp
     Test_Mock.cpp
     "${CMAKE_HOME_DIRECTORY}/mocks/MockSomeLibrary.cpp"
 )

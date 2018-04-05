@@ -1,7 +1,7 @@
 enable_language(CXX)
 
 add_executable(Test_SomeStructComparator
-    RunAllTests.cpp
+    AllTests.cpp
     Test_SomeStructComparator.cpp
 )
 target_link_libraries(Test_SomeStructComparator

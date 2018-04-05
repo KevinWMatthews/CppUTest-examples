@@ -1,7 +1,7 @@
 enable_language(CXX)
 
 add_executable(Test_MockCopier
-    RunAllTests.cpp
+    AllTests.cpp
     Test_MockCopier.cpp
 )
 target_link_libraries(Test_MockCopier
