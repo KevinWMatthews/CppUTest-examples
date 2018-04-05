@@ -11,6 +11,6 @@ target_link_libraries(Test_SomeStructInitParamsComparator
         SomeLibrary::SomeLibrary
 )
 add_test(
-    NAME CTest_SomeStructInitParamsComparator
+    NAME Test_SomeStructInitParamsComparator
     COMMAND Test_SomeStructInitParamsComparator
 )

@@ -12,6 +12,6 @@ target_link_libraries(Test_MockComparator
         SomeLibrary::SomeLibrary
 )
 add_test(
-    NAME CTest_MockComparator
+    NAME Test_MockComparator
     COMMAND Test_MockComparator
 )

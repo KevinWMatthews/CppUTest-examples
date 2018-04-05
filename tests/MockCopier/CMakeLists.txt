@@ -12,6 +12,6 @@ target_link_libraries(Test_MockCopier
         SomeLibrary::SomeLibrary
 )
 add_test(
-    NAME CTest_MockCopier
+    NAME Test_MockCopier
     COMMAND Test_MockCopier
 )

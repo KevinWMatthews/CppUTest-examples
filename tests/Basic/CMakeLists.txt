@@ -9,6 +9,6 @@ target_link_libraries(Test_Basic
         CppUTest
 )
 add_test(
-    NAME CTest_Basic
+    NAME Test_Basic
     COMMAND Test_Basic
 )

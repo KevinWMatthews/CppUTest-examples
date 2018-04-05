@@ -12,6 +12,6 @@ target_link_libraries(Test_Mock
         SomeLibrary::SomeLibrary
 )
 add_test(
-    NAME CTest_Mock
+    NAME Test_Mock
     COMMAND Test_Mock
 )

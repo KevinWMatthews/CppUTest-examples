@@ -11,6 +11,6 @@ target_link_libraries(Test_HiddenStructComparator
         SomeLibrary::SomeLibrary
 )
 add_test(
-    NAME CTest_HiddenStructComparator
+    NAME Test_HiddenStructComparator
     COMMAND Test_HiddenStructComparator
 )

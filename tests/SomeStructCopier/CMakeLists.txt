@@ -12,6 +12,6 @@ target_link_libraries(Test_SomeStructCopier
         SomeLibrary::SomeLibrary
 )
 add_test(
-    NAME CTest_SomeStructCopier
+    NAME Test_SomeStructCopier
     COMMAND Test_SomeStructCopier
 )
