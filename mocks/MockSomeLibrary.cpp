@@ -72,8 +72,3 @@ void SomeLibrary_FillStructFromStructWithCopier(SOME_STRUCT_INIT_PARAMS *params,
 void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle)
 {
 }
-
-HIDDEN_STRUCT_HANDLE SomeLibrary_HiddenStructInitialize(HIDDEN_STRUCT_INIT_PARAMS *params)
-{
-    return NULL;
-}

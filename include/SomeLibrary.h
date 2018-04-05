@@ -38,12 +38,7 @@ void SomeLibrary_FillStructFromStructWithCopier(SOME_STRUCT_INIT_PARAMS *params,
 
 typedef struct HIDDEN_STRUCT_DEFINITION * HIDDEN_STRUCT_HANDLE;
 
+// void SomeLibrary_CompareHiddenStruct(HIDDEN_STRUCT_HANDLE handle);
 void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle);
-
-typedef struct HIDDEN_STRUCT_INIT_PARAMS
-{
-    int init_value;
-} HIDDEN_STRUCT_INIT_PARAMS;
-HIDDEN_STRUCT_HANDLE SomeLibrary_HiddenStructInitialize(HIDDEN_STRUCT_INIT_PARAMS *params);
 
 #endif

@@ -58,9 +58,3 @@ void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle)
 {
     printf("%s: This function should only be called by production code!\n", __func__);
 }
-
-HIDDEN_STRUCT_HANDLE SomeLibrary_HiddenStructInitialize(HIDDEN_STRUCT_INIT_PARAMS *params)
-{
-    printf("%s: This function should only be called by production code!\n", __func__);
-    return NULL;
-}
