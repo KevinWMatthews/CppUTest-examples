@@ -99,6 +99,11 @@ TEST(TestWithMockCopier, fill_struct_from_parameters_using_copier)
 TEST(TestWithMockCopier, fill_struct_from_struct_without_copier)
 {
     SOME_STRUCT_INIT_PARAMS init_params = {};
+    int val1 = 41;
+    int val2 = 42;
+
+    init_params.init_value1 = val1;
+    init_params.init_value2 = val2;
 
     mock("SomeMock").expectOneCall("SomeLibrary_FillStructFromStruct")
         // Use a comparator to verify that the input parameters are valid.
@@ -106,4 +111,7 @@ TEST(TestWithMockCopier, fill_struct_from_struct_without_copier)
         // Manually copy these values into the output parameter.
 
     SomeLibrary_FillStructFromStruct(&init_params, &some_struct);
+
+    LONGS_EQUAL( val1, some_struct.thing1 );
+    LONGS_EQUAL( val2, some_struct.thing2 );
 }

@@ -58,6 +58,8 @@ void SomeLibrary_FillStructFromStruct(SOME_STRUCT_INIT_PARAMS *params, SOME_STRU
 {
     mock("SomeMock").actualCall("SomeLibrary_FillStructFromStruct")
         .withParameterOfType("SOME_STRUCT_INIT_PARAMS", "params", params);
+    self->thing1 = params->init_value1;
+    self->thing2 = params->init_value2;
 }
 
 void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle)
