@@ -88,7 +88,7 @@ TEST(TestWithMockCopier, fill_struct_from_parameters_using_copier)
     mock("SomeMock").expectOneCall("SomeLibrary_FillStructFromValues")
         .withParameter("thing1", thing1)
         .withParameter("thing2", thing2)
-        .withOutputParameterOfTypeReturning("SOME_STRUCT", "param", &output);
+        .withOutputParameterOfTypeReturning("SOME_STRUCT", "self", &output);
 
     SomeLibrary_FillStructFromValuesWithCopier(thing1, thing2, &some_struct);
 

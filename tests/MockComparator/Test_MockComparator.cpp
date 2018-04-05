@@ -28,7 +28,7 @@ TEST(TestWithMockComparator, call_function_with_comparator)
     some_struct.thing2 = 42;
 
     mock("SomeMock").expectOneCall("SomeLibrary_DoesNothingWithStructParameter")
-        .withParameterOfType("SOME_STRUCT", "param", &some_struct);
+        .withParameterOfType("SOME_STRUCT", "self", &some_struct);
 
     SomeLibrary_DoesNothingWithStructParameter(&some_struct);
 }
@@ -42,7 +42,7 @@ TEST(TestWithMockComparator, comparator_can_fail)
     some_struct.thing2 = 42;
 
     mock("SomeMock").expectOneCall("SomeLibrary_DoesNothingWithStructParameter")
-        .withParameterOfType("SOME_STRUCT", "param", &some_struct);
+        .withParameterOfType("SOME_STRUCT", "self", &some_struct);
 
     SOME_STRUCT other_struct = {};
     other_struct.thing1 = 66;

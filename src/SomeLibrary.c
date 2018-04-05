@@ -18,7 +18,7 @@ void SomeLibrary_DoesNothingWithParameter(int param)
     return;
 }
 
-void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param)
+void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *self)
 {
     printf("%s: This function should only be called by production code!\n", __func__);
     return;
@@ -30,13 +30,13 @@ void SomeLibrary_FillStructParameter(SOME_STRUCT *self)
     return;
 }
 
-void SomeLibrary_FillStructFromValues(int thing1, int thing2, SOME_STRUCT *param)
+void SomeLibrary_FillStructFromValues(int thing1, int thing2, SOME_STRUCT *self)
 {
     printf("%s: This function should only be called by production code!\n", __func__);
     return;
 }
 
-void SomeLibrary_FillStructFromValuesWithCopier(int thing1, int thing2, SOME_STRUCT *param)
+void SomeLibrary_FillStructFromValuesWithCopier(int thing1, int thing2, SOME_STRUCT *self)
 {
     printf("%s: This function should only be called by production code!\n", __func__);
     return;

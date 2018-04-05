@@ -25,10 +25,10 @@ void SomeLibrary_DoesNothingWithParameter(int param)
         .withParameter("param", param);
 }
 
-void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param)
+void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *self)
 {
     mock("SomeMock").actualCall("SomeLibrary_DoesNothingWithStructParameter")
-        .withParameterOfType("SOME_STRUCT", "param", param);
+        .withParameterOfType("SOME_STRUCT", "self", self);
 }
 
 void SomeLibrary_FillStructParameter(SOME_STRUCT *self)
@@ -37,21 +37,21 @@ void SomeLibrary_FillStructParameter(SOME_STRUCT *self)
         .withOutputParameterOfType("SOME_STRUCT", "self", self);
 }
 
-void SomeLibrary_FillStructFromValues(int thing1, int thing2, SOME_STRUCT *param)
+void SomeLibrary_FillStructFromValues(int thing1, int thing2, SOME_STRUCT *self)
 {
     mock("SomeMock").actualCall("SomeLibrary_FillStructFromValues")
        .withParameter("thing1", thing1)
        .withParameter("thing2", thing2);
-    param->thing1 = thing1;
-    param->thing2 = thing2;
+    self->thing1 = thing1;
+    self->thing2 = thing2;
 }
 
-void SomeLibrary_FillStructFromValuesWithCopier(int thing1, int thing2, SOME_STRUCT *param)
+void SomeLibrary_FillStructFromValuesWithCopier(int thing1, int thing2, SOME_STRUCT *self)
 {
     mock("SomeMock").actualCall("SomeLibrary_FillStructFromValues")
        .withParameter("thing1", thing1)
        .withParameter("thing2", thing2)
-       .withOutputParameterOfType("SOME_STRUCT", "param", param);
+       .withOutputParameterOfType("SOME_STRUCT", "self", self);
 }
 
 void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle)

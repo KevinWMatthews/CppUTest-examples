@@ -18,14 +18,14 @@ typedef struct SOME_STRUCT
     int thing1;
     int thing2;
 } SOME_STRUCT;
-void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param);
+void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *self);
 
 // Modify the struct that is passed.
 // The library does some internal magic that external modules can't see.
 void SomeLibrary_FillStructParameter(SOME_STRUCT *self);
 
-void SomeLibrary_FillStructFromValues(int thing1, int thing2, SOME_STRUCT *param);
-void SomeLibrary_FillStructFromValuesWithCopier(int thing1, int thing2, SOME_STRUCT *param);
+void SomeLibrary_FillStructFromValues(int thing1, int thing2, SOME_STRUCT *self);
+void SomeLibrary_FillStructFromValuesWithCopier(int thing1, int thing2, SOME_STRUCT *self);
 
 
 
