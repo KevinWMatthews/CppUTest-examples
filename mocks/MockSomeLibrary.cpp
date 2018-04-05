@@ -31,9 +31,9 @@ void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param)
         .withParameterOfType("SOME_STRUCT", "param", param);
 }
 
-void SomeLibrary_ClearStructParameter(SOME_STRUCT *self)
+void SomeLibrary_FillStructParameter(SOME_STRUCT *self)
 {
-    mock("SomeMock").actualCall("SomeLibrary_ClearStructParameter")
+    mock("SomeMock").actualCall("SomeLibrary_FillStructParameter")
         .withOutputParameterOfType("SOME_STRUCT", "self", self);
 }
 

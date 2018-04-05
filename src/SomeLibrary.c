@@ -24,7 +24,7 @@ void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param)
     return;
 }
 
-void SomeLibrary_ClearStructParameter(SOME_STRUCT *self)
+void SomeLibrary_FillStructParameter(SOME_STRUCT *self)
 {
     printf("%s: This function should only be called by production code!\n", __func__);
     return;

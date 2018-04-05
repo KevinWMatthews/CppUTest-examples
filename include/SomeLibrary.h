@@ -21,7 +21,7 @@ typedef struct SOME_STRUCT
 void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *param);
 
 // Modify the struct that is passed - clear all internal values
-void SomeLibrary_ClearStructParameter(SOME_STRUCT *self);
+void SomeLibrary_FillStructParameter(SOME_STRUCT *self);
 
 typedef struct HIDDEN_STRUCT_DEFINITION * HIDDEN_STRUCT_HANDLE;
 
