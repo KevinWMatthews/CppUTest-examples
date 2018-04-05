@@ -5,6 +5,8 @@ add_library(MockSomeLibrary
     SomeStructComparator.cpp
     SomeStructCopier.h
     SomeStructCopier.cpp
+    SomeStructInitParamsComparator.h
+    SomeStructInitParamsComparator.cpp
     HiddenStructComparator.h
     HiddenStructComparator.cpp
     HiddenStructCopier.h
