@@ -65,8 +65,9 @@ TEST(TestWithMockCopier, fill_struct_from_parameters_without_copier)
     mock("SomeLibrary").expectOneCall("SomeLibrary_FillStructFromValues")
         .withParameter("thing1", thing1)
         .withParameter("thing2", thing2);
-    // We could fill the struct using a copier.
-    // In this case it seems more straightforward to do it manually in the mock.
+    // Fill struct manually in mock actual call.
+    // We could fill the struct using a copier, but
+    // in this case it is straightforward to do it manually in the mock.
 
     SomeLibrary_FillStructFromValues(thing1, thing2, &some_struct);
 
@@ -82,11 +83,12 @@ TEST(TestWithMockCopier, fill_struct_from_parameters_using_copier)
     output.thing1 = thing1;
     output.thing2 = thing2;
 
-    // In more complex cases a copier could be simpler.
-    // This isn't a complex case, but demonstrate this method using a simple case.
     mock("SomeLibrary").expectOneCall("SomeLibrary_FillStructFromValues")
         .withParameter("thing1", thing1)
         .withParameter("thing2", thing2)
+        // Fill struct using a copier.
+        // In more complex cases this could be simpler.
+        // This isn't a complex case, but demonstrate this method using a simple case.
         .withOutputParameterOfTypeReturning("SOME_STRUCT", "self", &output);
 
     SomeLibrary_FillStructFromValuesWithCopier(thing1, thing2, &some_struct);
@@ -107,7 +109,7 @@ TEST(TestWithMockCopier, fill_struct_from_struct_without_copier)
     mock("SomeLibrary").expectOneCall("SomeLibrary_FillStructFromStruct")
         // Use a comparator to verify that the input parameters are valid.
         .withParameterOfType("SOME_STRUCT_INIT_PARAMS", "params", &init_params);
-        // Manually copy these values into the output parameter.
+        // Not using copier - manually copy these values into the output parameter in the mock actual call.
 
     SomeLibrary_FillStructFromStruct(&init_params, &some_struct);
 
@@ -129,6 +131,7 @@ TEST(TestWithMockCopier, fill_struct_from_struct_using_copier)
     mock("SomeLibrary").expectOneCall("SomeLibrary_FillStructFromStructWithCopier")
         // Use a comparator to verify that the input parameters are valid.
         .withParameterOfType("SOME_STRUCT_INIT_PARAMS", "params", &init_params)
+        // Use a copier to fill the struct.
         .withOutputParameterOfTypeReturning("SOME_STRUCT", "self", &output);
 
     SomeLibrary_FillStructFromStructWithCopier(&init_params, &some_struct);
