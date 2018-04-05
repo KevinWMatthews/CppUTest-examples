@@ -37,6 +37,15 @@ void SomeLibrary_FillStructParameter(SOME_STRUCT *self)
         .withOutputParameterOfType("SOME_STRUCT", "self", self);
 }
 
+void SomeLibrary_FillStructFromValues(int thing1, int thing2, SOME_STRUCT *param)
+{
+    mock("SomeMock").actualCall("SomeLibrary_FillStructFromValues")
+       .withParameter("thing1", thing1)
+       .withParameter("thing2", thing2);
+    param->thing1 = thing1;
+    param->thing2 = thing2;
+}
+
 void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle)
 {
 }
