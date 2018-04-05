@@ -33,6 +33,7 @@ typedef struct SOME_STRUCT_INIT_PARAMS
     int init_value2;
 } SOME_STRUCT_INIT_PARAMS;
 void SomeLibrary_FillStructFromStruct(SOME_STRUCT_INIT_PARAMS *params, SOME_STRUCT *self);
+void SomeLibrary_FillStructFromStructWithCopier(SOME_STRUCT_INIT_PARAMS *params, SOME_STRUCT *self);
 
 
 typedef struct HIDDEN_STRUCT_DEFINITION * HIDDEN_STRUCT_HANDLE;

@@ -62,6 +62,13 @@ void SomeLibrary_FillStructFromStruct(SOME_STRUCT_INIT_PARAMS *params, SOME_STRU
     self->thing2 = params->init_value2;
 }
 
+void SomeLibrary_FillStructFromStructWithCopier(SOME_STRUCT_INIT_PARAMS *params, SOME_STRUCT *self)
+{
+    mock("SomeMock").actualCall("SomeLibrary_FillStructFromStructWithCopier")
+        .withParameterOfType("SOME_STRUCT_INIT_PARAMS", "params", params)
+        .withOutputParameterOfType("SOME_STRUCT", "self", self);
+}
+
 void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle)
 {
 }
