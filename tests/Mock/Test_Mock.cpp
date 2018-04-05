@@ -22,14 +22,14 @@ TEST_GROUP(TestWithMock)
 
 TEST(TestWithMock, call_function)
 {
-    mock("SomeMock").expectOneCall("SomeLibrary_DoesNothing");
+    mock("SomeLibrary").expectOneCall("SomeLibrary_DoesNothing");
 
     SomeLibrary_DoesNothing();
 }
 
 TEST(TestWithMock, call_function_with_paramter)
 {
-    mock("SomeMock").expectOneCall("SomeLibrary_DoesNothingWithParameter")
+    mock("SomeLibrary").expectOneCall("SomeLibrary_DoesNothingWithParameter")
         .withParameter("param", 42);
 
     int param = 42;

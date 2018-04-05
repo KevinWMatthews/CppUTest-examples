@@ -16,30 +16,30 @@ extern "C"
 
 void SomeLibrary_DoesNothing(void)
 {
-    mock("SomeMock").actualCall("SomeLibrary_DoesNothing");
+    mock("SomeLibrary").actualCall("SomeLibrary_DoesNothing");
 }
 
 void SomeLibrary_DoesNothingWithParameter(int param)
 {
-    mock("SomeMock").actualCall("SomeLibrary_DoesNothingWithParameter")
+    mock("SomeLibrary").actualCall("SomeLibrary_DoesNothingWithParameter")
         .withParameter("param", param);
 }
 
 void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *self)
 {
-    mock("SomeMock").actualCall("SomeLibrary_DoesNothingWithStructParameter")
+    mock("SomeLibrary").actualCall("SomeLibrary_DoesNothingWithStructParameter")
         .withParameterOfType("SOME_STRUCT", "self", self);
 }
 
 void SomeLibrary_FillStructParameter(SOME_STRUCT *self)
 {
-    mock("SomeMock").actualCall("SomeLibrary_FillStructParameter")
+    mock("SomeLibrary").actualCall("SomeLibrary_FillStructParameter")
         .withOutputParameterOfType("SOME_STRUCT", "self", self);
 }
 
 void SomeLibrary_FillStructFromValues(int thing1, int thing2, SOME_STRUCT *self)
 {
-    mock("SomeMock").actualCall("SomeLibrary_FillStructFromValues")
+    mock("SomeLibrary").actualCall("SomeLibrary_FillStructFromValues")
        .withParameter("thing1", thing1)
        .withParameter("thing2", thing2);
     self->thing1 = thing1;
@@ -48,7 +48,7 @@ void SomeLibrary_FillStructFromValues(int thing1, int thing2, SOME_STRUCT *self)
 
 void SomeLibrary_FillStructFromValuesWithCopier(int thing1, int thing2, SOME_STRUCT *self)
 {
-    mock("SomeMock").actualCall("SomeLibrary_FillStructFromValues")
+    mock("SomeLibrary").actualCall("SomeLibrary_FillStructFromValues")
        .withParameter("thing1", thing1)
        .withParameter("thing2", thing2)
        .withOutputParameterOfType("SOME_STRUCT", "self", self);
@@ -56,7 +56,7 @@ void SomeLibrary_FillStructFromValuesWithCopier(int thing1, int thing2, SOME_STR
 
 void SomeLibrary_FillStructFromStruct(SOME_STRUCT_INIT_PARAMS *params, SOME_STRUCT *self)
 {
-    mock("SomeMock").actualCall("SomeLibrary_FillStructFromStruct")
+    mock("SomeLibrary").actualCall("SomeLibrary_FillStructFromStruct")
         .withParameterOfType("SOME_STRUCT_INIT_PARAMS", "params", params);
     self->thing1 = params->init_value1;
     self->thing2 = params->init_value2;
@@ -64,7 +64,7 @@ void SomeLibrary_FillStructFromStruct(SOME_STRUCT_INIT_PARAMS *params, SOME_STRU
 
 void SomeLibrary_FillStructFromStructWithCopier(SOME_STRUCT_INIT_PARAMS *params, SOME_STRUCT *self)
 {
-    mock("SomeMock").actualCall("SomeLibrary_FillStructFromStructWithCopier")
+    mock("SomeLibrary").actualCall("SomeLibrary_FillStructFromStructWithCopier")
         .withParameterOfType("SOME_STRUCT_INIT_PARAMS", "params", params)
         .withOutputParameterOfType("SOME_STRUCT", "self", self);
 }

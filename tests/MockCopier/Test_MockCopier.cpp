@@ -32,7 +32,7 @@ TEST(TestWithMockCopier, copier_can_clear_struct)
     some_struct.thing1 = 66;
     some_struct.thing2 = 67;
 
-    mock("SomeMock").expectOneCall("SomeLibrary_FillStructParameter")
+    mock("SomeLibrary").expectOneCall("SomeLibrary_FillStructParameter")
         .withOutputParameterOfTypeReturning("SOME_STRUCT", "self", &output);
 
     SomeLibrary_FillStructParameter(&some_struct);
@@ -48,7 +48,7 @@ TEST(TestWithMockCopier, copier_can_fill_struct)
     some_struct.thing1 = 0;
     some_struct.thing2 = 0;
 
-    mock("SomeMock").expectOneCall("SomeLibrary_FillStructParameter")
+    mock("SomeLibrary").expectOneCall("SomeLibrary_FillStructParameter")
         .withOutputParameterOfTypeReturning("SOME_STRUCT", "self", &output);
 
     SomeLibrary_FillStructParameter(&some_struct);
@@ -62,7 +62,7 @@ TEST(TestWithMockCopier, fill_struct_from_parameters_without_copier)
     int thing1 = 41;
     int thing2 = 42;
 
-    mock("SomeMock").expectOneCall("SomeLibrary_FillStructFromValues")
+    mock("SomeLibrary").expectOneCall("SomeLibrary_FillStructFromValues")
         .withParameter("thing1", thing1)
         .withParameter("thing2", thing2);
     // We could fill the struct using a copier.
@@ -84,7 +84,7 @@ TEST(TestWithMockCopier, fill_struct_from_parameters_using_copier)
 
     // In more complex cases a copier could be simpler.
     // This isn't a complex case, but demonstrate this method using a simple case.
-    mock("SomeMock").expectOneCall("SomeLibrary_FillStructFromValues")
+    mock("SomeLibrary").expectOneCall("SomeLibrary_FillStructFromValues")
         .withParameter("thing1", thing1)
         .withParameter("thing2", thing2)
         .withOutputParameterOfTypeReturning("SOME_STRUCT", "self", &output);
@@ -104,7 +104,7 @@ TEST(TestWithMockCopier, fill_struct_from_struct_without_copier)
     init_params.init_value1 = val1;
     init_params.init_value2 = val2;
 
-    mock("SomeMock").expectOneCall("SomeLibrary_FillStructFromStruct")
+    mock("SomeLibrary").expectOneCall("SomeLibrary_FillStructFromStruct")
         // Use a comparator to verify that the input parameters are valid.
         .withParameterOfType("SOME_STRUCT_INIT_PARAMS", "params", &init_params);
         // Manually copy these values into the output parameter.
@@ -126,7 +126,7 @@ TEST(TestWithMockCopier, fill_struct_from_struct_using_copier)
     output.thing1 = val1;
     output.thing2 = val2;
 
-    mock("SomeMock").expectOneCall("SomeLibrary_FillStructFromStructWithCopier")
+    mock("SomeLibrary").expectOneCall("SomeLibrary_FillStructFromStructWithCopier")
         // Use a comparator to verify that the input parameters are valid.
         .withParameterOfType("SOME_STRUCT_INIT_PARAMS", "params", &init_params)
         .withOutputParameterOfTypeReturning("SOME_STRUCT", "self", &output);
