@@ -95,3 +95,15 @@ TEST(TestWithMockCopier, fill_struct_from_parameters_using_copier)
     LONGS_EQUAL(thing1, some_struct.thing1);
     LONGS_EQUAL(thing2, some_struct.thing2);
 }
+
+IGNORE_TEST(TestWithMockCopier, fill_struct_from_struct_without_copier)
+{
+    SOME_STRUCT_INIT_PARAMS init_params = {};
+
+    mock("SomeMock").expectOneCall("SomeLibrary_FillStructFromStruct")
+        // Use a comparator to verify that the input parameters are valid.
+        .withParameterOfType("SOME_STRUCT_INIT_PARAMS", "params", &init_params);
+        // Manually copy these values into the output parameter.
+
+    SomeLibrary_FillStructFromStruct(&init_params, &some_struct);
+}
