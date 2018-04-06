@@ -69,6 +69,12 @@ void SomeLibrary_FillStructFromStructWithCopier(SOME_STRUCT_INIT_PARAMS *params,
         .withOutputParameterOfType("SOME_STRUCT", "self", self);
 }
 
+void SomeLibrary_CompareHiddenStruct(HIDDEN_STRUCT_HANDLE handle)
+{
+    mock("SomeLibrary").actualCall("SomeLibrary_CompareHiddenStruct")
+        .withParameterOfType("HIDDEN_STRUCT", "handle", handle);
+}
+
 void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle)
 {
 }

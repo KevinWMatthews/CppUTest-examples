@@ -26,5 +26,11 @@ bool HiddenStructComparator::isEqual(const void* object1, const void* object2)
 
 SimpleString HiddenStructComparator::valueToString(const void* object)
 {
-    return StringFrom(object);
+    const HIDDEN_STRUCT_DEFINITION * some_struct = (HIDDEN_STRUCT_DEFINITION *)object;
+
+    SimpleString output;
+
+    output += StringFrom("HIDDEN_STRUCT");
+    output += StringFrom(" - ") + StringFrom("test_value: ") + StringFrom(some_struct->test_value);
+    return output;
 }
