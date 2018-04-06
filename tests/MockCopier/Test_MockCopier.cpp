@@ -1,6 +1,7 @@
 extern "C"
 {
 #include "SomeLibrary.h"
+#include "MockSomeLibrary.h"
 }
 
 #include "CppUTest/TestHarness.h"
@@ -138,4 +139,22 @@ TEST(TestWithMockCopier, fill_struct_from_struct_using_copier)
 
     LONGS_EQUAL( val1, some_struct.thing1 );
     LONGS_EQUAL( val2, some_struct.thing2 );
+}
+
+TEST(TestWithMockCopier, fill_hidden_struct_using_copier)
+{
+    HIDDEN_STRUCT_DEFINITION output = {};               // The mock's copier will copy these values (set by the mock expectation)...
+    HIDDEN_STRUCT_DEFINITION hidden_struct = {};        // ... into this struct (using the actual function call).
+    HIDDEN_STRUCT_HANDLE handle = &hidden_struct;
+    int val = 42;
+    output.test_value = val;
+
+    mock("SomeLibrary").expectOneCall("SomeLibrary_FillHiddenStruct")
+        .withParameter("value", val)
+        // A copier isn't necessary in this simple case; demonstrate the technique.
+        .withOutputParameterOfTypeReturning("HIDDEN_STRUCT", "handle", &output);
+
+    SomeLibrary_FillHiddenStruct(val, handle);
+
+    LONGS_EQUAL(val, handle->test_value);
 }

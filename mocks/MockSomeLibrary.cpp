@@ -77,4 +77,7 @@ void SomeLibrary_CompareHiddenStruct(HIDDEN_STRUCT_HANDLE handle)
 
 void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle)
 {
+    mock("SomeLibrary").actualCall("SomeLibrary_FillHiddenStruct")
+        .withParameter("value", value)
+        .withOutputParameterOfType("HIDDEN_STRUCT", "handle", handle);
 }
