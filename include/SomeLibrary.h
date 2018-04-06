@@ -45,11 +45,14 @@ void SomeLibrary_FillStructFromStructWithCopier(SOME_STRUCT_INIT_PARAMS *params,
  * Show that copiers and comparators can work when data hiding is used.
  * The production code struct definition is not available to test code,
  * so a mock definition must provided in test code.
- * In this case there is a mock header file for the library.
+ * In this case a mock header file defines the struct.
  */
 typedef struct HIDDEN_STRUCT_DEFINITION * HIDDEN_STRUCT_HANDLE;
 
+// Compare a struct that is hidden behind a typedef'ed pointer.
 void SomeLibrary_CompareHiddenStruct(HIDDEN_STRUCT_HANDLE handle);
+
+// Copy a struct that is hidden behind a typedef'ed pointer.
 void SomeLibrary_FillHiddenStruct(int value, HIDDEN_STRUCT_HANDLE handle);
 
 #endif
