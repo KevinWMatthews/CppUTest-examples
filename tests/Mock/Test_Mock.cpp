@@ -35,3 +35,27 @@ TEST(TestWithMock, call_function_with_paramter)
     int param = 42;
     SomeLibrary_DoesNothingWithParameter(param);
 }
+
+TEST(TestWithMock, return_int_value)
+{
+    int ret;
+
+    mock("SomeLibrary").expectOneCall("SomeLibrary_ReturnInt")
+        // CppUTeset overloads this. See CppUTestExt/MockExpectedCall.h
+        .andReturnValue(42);
+
+    ret = SomeLibrary_ReturnInt();
+    LONGS_EQUAL( 42, ret );
+}
+
+TEST(TestWithMock, return_int_value_altername_method)
+{
+    // The test is the same but the implementation of the actual call is different.
+    int ret;
+
+    mock("SomeLibrary").expectOneCall("SomeLibrary_ReturnInt2")
+        .andReturnValue(42);
+
+    ret = SomeLibrary_ReturnInt2();
+    LONGS_EQUAL( 42, ret );
+}

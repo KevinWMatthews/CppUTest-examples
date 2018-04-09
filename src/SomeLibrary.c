@@ -18,6 +18,18 @@ void SomeLibrary_DoesNothingWithParameter(int param)
     return;
 }
 
+int SomeLibrary_ReturnInt(void)
+{
+    printf("%s: This function should only be called by production code!\n", __func__);
+    return -1;
+}
+
+int SomeLibrary_ReturnInt2(void)
+{
+    printf("%s: This function should only be called by production code!\n", __func__);
+    return -1;
+}
+
 void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *self)
 {
     printf("%s: This function should only be called by production code!\n", __func__);

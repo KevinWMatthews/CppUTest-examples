@@ -25,6 +25,20 @@ void SomeLibrary_DoesNothingWithParameter(int param)
         .withParameter("param", param);
 }
 
+int SomeLibrary_ReturnInt(void)
+{
+    return mock("SomeLibrary").actualCall("SomeLibrary_ReturnInt")
+        // See CppUTestExt/MockActualCall.h
+        .returnIntValue();
+}
+
+int SomeLibrary_ReturnInt2(void)
+{
+    mock("SomeLibrary").actualCall("SomeLibrary_ReturnInt2");
+    // See CppUTestExt/MockSupport.h
+    return mock("SomeLibrary").intReturnValue();
+}
+
 void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *self)
 {
     mock("SomeLibrary").actualCall("SomeLibrary_DoesNothingWithStructParameter")

@@ -41,6 +41,12 @@ void SomeLibrary_FillStructFromStruct(SOME_STRUCT_INIT_PARAMS *params, SOME_STRU
 // Use a mock copier fill the struct from the struct of initialization parameters.
 void SomeLibrary_FillStructFromStructWithCopier(SOME_STRUCT_INIT_PARAMS *params, SOME_STRUCT *self);
 
+// Return an integer value
+int SomeLibrary_ReturnInt(void);
+
+// Return an integer value, alternate implementation of actual call
+int SomeLibrary_ReturnInt2(void);
+
 /*
  * Show that copiers and comparators can work when data hiding is used.
  * The production code struct definition is not available to test code,
