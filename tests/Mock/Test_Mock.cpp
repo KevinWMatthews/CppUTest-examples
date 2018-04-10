@@ -72,3 +72,16 @@ TEST(TestWithMock, return_void_pointer)
     actual = SomeLibrary_ReturnVoidPointer();
     POINTERS_EQUAL( ptr, actual );
 }
+
+TEST(TestWithMock, return_int_pointer)
+{
+    int val = 42;
+    int * ptr = &val;
+    int * actual = NULL;
+
+    mock("SomeLibrary").expectOneCall("SomeLibrary_ReturnIntPointer")
+        .andReturnValue(ptr);
+
+    actual = SomeLibrary_ReturnIntPointer();
+    POINTERS_EQUAL( ptr, actual );
+}

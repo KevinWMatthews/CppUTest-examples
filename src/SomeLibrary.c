@@ -36,6 +36,12 @@ void * SomeLibrary_ReturnVoidPointer(void)
     return NULL;
 }
 
+int * SomeLibrary_ReturnIntPointer(void)
+{
+    printf("%s: This function should only be called by production code!\n", __func__);
+    return NULL;
+}
+
 void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *self)
 {
     printf("%s: This function should only be called by production code!\n", __func__);
