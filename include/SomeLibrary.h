@@ -47,6 +47,9 @@ int SomeLibrary_ReturnInt(void);
 // Return an integer value, alternate implementation of actual call
 int SomeLibrary_ReturnInt2(void);
 
+// Return a void pointer.
+void * SomeLibrary_ReturnVoidPointer(void);
+
 /*
  * Show that copiers and comparators can work when data hiding is used.
  * The production code struct definition is not available to test code,
