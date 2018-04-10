@@ -85,3 +85,22 @@ TEST(TestWithMock, return_int_pointer)
     actual = SomeLibrary_ReturnIntPointer();
     POINTERS_EQUAL( ptr, actual );
 }
+
+TEST(TestWithMock, return_struct_pointer)
+{
+    SOME_STRUCT some_struct = {};
+    SOME_STRUCT * ptr = &some_struct;
+    SOME_STRUCT * actual = NULL;
+
+    some_struct.thing1 = 41;
+    some_struct.thing2 = 42;
+
+    mock("SomeLibrary").expectOneCall("SomeLibrary_ReturnStructPointer")
+        .andReturnValue(ptr);
+
+    actual = SomeLibrary_ReturnStructPointer();
+
+    POINTERS_EQUAL( ptr, actual );
+    LONGS_EQUAL( 41, actual->thing1 );  // Obviously.
+    LONGS_EQUAL( 42, actual->thing2 );
+}

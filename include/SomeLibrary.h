@@ -53,6 +53,9 @@ void * SomeLibrary_ReturnVoidPointer(void);
 // Return an int pointer.
 int * SomeLibrary_ReturnIntPointer(void);
 
+// Return a pointer to a struct.
+SOME_STRUCT * SomeLibrary_ReturnStructPointer(void);
+
 /*
  * Show that copiers and comparators can work when data hiding is used.
  * The production code struct definition is not available to test code,

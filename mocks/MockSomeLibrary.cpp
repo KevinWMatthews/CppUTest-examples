@@ -56,6 +56,12 @@ int * SomeLibrary_ReturnIntPointer(void)
         // .returnPointerValue();
 }
 
+SOME_STRUCT * SomeLibrary_ReturnStructPointer(void)
+{
+    mock("SomeLibrary").actualCall("SomeLibrary_ReturnStructPointer");
+    return (SOME_STRUCT *)mock("SomeLibrary").pointerReturnValue();
+}
+
 void SomeLibrary_DoesNothingWithStructParameter(SOME_STRUCT *self)
 {
     mock("SomeLibrary").actualCall("SomeLibrary_DoesNothingWithStructParameter")
